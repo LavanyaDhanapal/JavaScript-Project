@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list javascript</title>
+    <style>
+        
+        body {
+            margin: 0;
+            
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f5e8ba;
+        }
+        #wrapper h2 {
+            display: flex;
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            justify-content: center;
+        }
+        h2 {
+            color: red;
+            text-shadow: 2px 2px;
+            letter-spacing: center;
+        }
+        input:active {
+            border: none;
+        }
+        #wrapper {
+            height: 500px;
+            width: 400px;
+            margin: 90px auto;
+            background-color: white;
+            box-shadow: 10px 10px 15px 10px black;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        p {
+            cursor: pointer;
+            padding: 10px;
+        }
+        p.completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+     
+    <div id="wrapper">
+        
+        <h2>Todo List</h2>
+       
+        <input type="text" id="input" placeholder="Enter task">
+        <button id="add">Add</button>
+        <div id="todolist"></div>
+    </div>
+</body>
+<script>
+    let button = document.getElementById('add');
+    let todolist = document.getElementById('todolist');
+    let input = document.getElementById('input');
+    let todos = [];
+
+    button.addEventListener('click', () => {
+        if (input.value.trim() !== '') {
+            todos.push(input.value);
+            addtodo(input.value);
+            input.value = '';
+        }
+    });
+
+    function addtodo(todo) {
+        let para = document.createElement('p');
+        para.innerHTML = todo;
+        todolist.appendChild(para);
+
+        para.addEventListener('click', () => {
+            para.classList.toggle('completed');
+        });
+
+        para.addEventListener('dblclick', () => {
+            todolist.removeChild(para);
+        });
+    }
+</script>
+</html>
+
+

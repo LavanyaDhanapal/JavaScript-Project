@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+    <style>
+        
+        .image2{
+            width: 1330px;
+            height: 900px;
+            position: relative;
+            /* left: 200px; */
+        }
+        .rr1{
+            
+            position: relative;
+            bottom: 800px;
+            margin-left: 200px;
+            text-shadow: 2px 2px 5px;
+        }
+        #kk1{
+            position: relative;
+            bottom: 800px;
+            margin-left: 180px;
+            font-size: 70px;
+            text-shadow: 2px 2px 5px gray;
+
+        }
+        
+    </style> 
+
+
+<body>
+    <div class="div1">
+       <img class="image2" src="/clockkk.jpg" alt="">
+    </div>
+    <div id="tenn1" >
+        <h1 class="rr1">DIGITAL CLOCK</h1>
+    </div>
+    <div id="kk1">
+        <span id="hours">00</span>
+        <span>:</span>
+        <span id="mins">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+        <span>:</span>
+        <span id="ampm">AM</span>
+    </div>
+
+</body>
+<script>
+    let ampam = document.getElementById("ampm")
+    function displayTime() {
+
+        let dateTime = new Date()
+        let hr = dateTime.getHours()
+        let min = ab(dateTime.getMinutes())
+        let sec = ab(dateTime.getSeconds())
+        if (hr > 12) {
+            hr = hr - 12
+            ampm.innerHTML = "PM"
+        }
+        document.getElementById("hours").innerHTML = ab(hr)
+        document.getElementById("mins").innerHTML = min
+        document.getElementById("seconds").innerHTML = sec
+        document.getElementById("hours").innerHTML = hrs
+    }
+    function ab(num) {
+        return num < 10 ? "0" + num : num
+    }
+    setInterval(displayTime, 1000)
+    AOS.init();
+</script>
+
+</html>
